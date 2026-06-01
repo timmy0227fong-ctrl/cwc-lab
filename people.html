@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- 成員頁 (people.html)
+     每個成員是一個 .person 區塊。
+     頭像目前用姓名縮寫的圓圈代替；要放真實照片時，把 <div class="avatar">XX</div>
+     換成 <div class="avatar"><img src="images/檔名.jpg" alt="姓名"></div> 即可。 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People — CWC Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-logo">CWC</span><span>CWC Lab</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="people.html" class="active">People</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="join.html">Join Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 主持人 -->
+  <section class="section">
+    <div class="container">
+      <h2>Principal Investigator</h2>
+      <p class="subtitle"></p>
+      <div class="grid">
+        <div class="card person">
+          <div class="avatar">EH</div>
+          <h3>Prof. Eleanor Hartwell</h3>
+          <p class="role">Professor of Cognitive Science</p>
+          <p class="bio">Works on cognitive modelling and mental wellbeing; former Head of the School of Psychology at Examplebridge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 博士後 -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2>Postdoctoral Researchers</h2>
+      <div class="grid">
+        <div class="card person">
+          <div class="avatar">RK</div>
+          <h3>Dr. Raj Kapoor</h3>
+          <p class="role">Postdoctoral Researcher</p>
+          <p class="bio">Specialises in reinforcement learning and decision modelling.</p>
+        </div>
+        <div class="card person">
+          <div class="avatar">MS</div>
+          <h3>Dr. Maria Silva</h3>
+          <p class="role">Postdoctoral Researcher</p>
+          <p class="bio">Studies the neural mechanisms of emotion regulation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 博士生 -->
+  <section class="section">
+    <div class="container">
+      <h2>PhD Students</h2>
+      <div class="grid">
+        <div class="card person">
+          <div class="avatar">TL</div>
+          <h3>Tom Liang</h3>
+          <p class="role">PhD Student</p>
+          <p class="bio">Trust and cognitive load in human–AI interaction.</p>
+        </div>
+        <div class="card person">
+          <div class="avatar">AF</div>
+          <h3>Amara Frost</h3>
+          <p class="role">PhD Student</p>
+          <p class="bio">Design of digital mental health interventions.</p>
+        </div>
+        <div class="card person">
+          <div class="avatar">YC</div>
+          <h3>Yuki Chen</h3>
+          <p class="role">PhD Student</p>
+          <p class="bio">Computational models of memory consolidation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 CWC Lab, University of Examplebridge ·
+         <a href="contact.html">Contact us</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
