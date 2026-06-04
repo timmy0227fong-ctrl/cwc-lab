@@ -315,37 +315,33 @@ img { max-width: 100%; display: block; }
 @media (max-width: 720px) {
   .section { padding: 60px 0; }
   .section h2 { font-size: 32px; }
-  .hero { padding: 80px 0 70px; }
+  .hero { padding: 44px 0 64px; }
   .hero p { font-size: 18px; }
 
-  /* 手機版導覽列：品牌 + 漢堡按鈕一行；選單以絕對定位浮在頁面內容「之上」，
-     展開時不會把下方內容往下推（避免跳動）。 */
-  /* iOS Safari 限制：磨砂用在「吸頂頁首裡的子元素」會失效。
-     手機版改成不吸頂（position: static），並關掉頁首自身的 backdrop-filter，
-     讓選單的 backdrop-filter 能直接模糊到頁面內容。電腦版仍維持吸頂。 */
+  /* 手機版導覽列：頁首改為「固定吸頂」(position: fixed)，選單在「頁首內」展開，
+     由頁首這一個元素本身的 backdrop-filter 一起磨砂 —— iOS Safari 對吸頂元素
+     本身的磨砂是支援的（對其子元素則否），這樣選單才會有磨砂效果。
+     固定定位也讓選單展開時不會把頁面內容往下推（避免跳動），標題維持吸頂。 */
   .site-header {
-    position: static;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-  .nav { position: relative; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 12px;
-    padding: 14px 24px 20px;
-    /* 玻璃磨砂：約 85% 不透明（穿透率 ~15%）+ 背景模糊 */
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    /* 玻璃磨砂：約 92% 不透明（穿透率 ~8%）+ 背景模糊 */
     background: rgba(247, 246, 243, 0.92);
     -webkit-backdrop-filter: saturate(180%) blur(40px);
     backdrop-filter: saturate(180%) blur(40px);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 14px 28px rgba(0,0,0,.14);
-    z-index: 200;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
+  }
+  body { padding-top: 68px; } /* 預留固定頁首高度；JS 會再校正成精確值 */
+  .nav { flex-wrap: wrap; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+    padding: 10px 0 4px;
+    border-top: 1px solid var(--color-border);
   }
   .nav.nav-open .nav-links { display: flex; }
   .nav-links a { padding: 14px 8px; font-size: 19px; }
