@@ -7,8 +7,8 @@
 
 /* --- 1. 全站顏色設定（想換色改這裡） --- */
 :root {
-  --color-accent: #4f46e5;        /* 強調色：靛藍（按鈕、連結、重點） */
-  --color-accent-dark: #3730a3;   /* 強調色加深，hover 用 */
+  --color-accent: #003c8f;        /* 強調色：University of Bath 藍（按鈕、連結、重點） */
+  --color-accent-dark: #002a66;   /* 強調色加深，hover 用 */
   --color-ink: #16161a;           /* 主要文字（接近黑） */
   --color-ink-soft: #5b5b66;      /* 次要文字（灰） */
   --color-bg: #f7f6f3;            /* 全站米白背景 */
@@ -140,7 +140,7 @@ img { max-width: 100%; display: block; }
   color: #fff;
   background: var(--color-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(79,70,229,.28);
+  box-shadow: 0 10px 24px rgba(0,60,143,.28);
 }
 .btn-outline {
   background: transparent;
