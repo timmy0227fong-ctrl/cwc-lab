@@ -335,9 +335,9 @@ img { max-width: 100%; display: block; }
     gap: 12px;
     padding: 14px 24px 20px;
     /* 玻璃磨砂：約 85% 不透明（穿透率 ~15%）+ 背景模糊 */
-    background: rgba(247, 246, 243, 0.85);
-    -webkit-backdrop-filter: saturate(180%) blur(28px);
-    backdrop-filter: saturate(180%) blur(28px);
+    background: rgba(247, 246, 243, 0.92);
+    -webkit-backdrop-filter: saturate(180%) blur(40px);
+    backdrop-filter: saturate(180%) blur(40px);
     border-bottom: 1px solid var(--color-border);
     box-shadow: 0 14px 28px rgba(0,0,0,.14);
     z-index: 200;
