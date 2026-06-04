@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<!-- 研究頁 (research.html)：介紹各研究方向。每個 .card 就是一個方向。 -->
+<!-- 研究頁 (research.html) — 編號條列排版（不用方框）
+     依 Joe Chen 的 Research Statement 重寫。每個 <div class="research-entry"> 是一個研究主題。 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -32,64 +33,127 @@
   <section class="section">
     <div class="container">
       <h2>Research</h2>
-      <p class="subtitle">Controlling light in multimode fibres — from fundamental nonlinear optics to real-world photonic devices.</p>
+      <p class="subtitle">Building the next generation of high-power, ultra-stable, and intelligent fibre lasers.</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Nonlinear Optics in Multimode Fibres</h3>
-          <p>
-            Stimulated Brillouin scattering (SBS) and transverse mode instability (TMI)
-            limit how much power a fibre can carry. We study the physics of these
-            nonlinearities in multimode fibres and develop strategies — including
-            multimode excitation and wavefront control — to suppress them and reach
-            higher powers.
-          </p>
+      <p class="research-overview">
+        The Fibre Photonics Lab develops the next generation of high-power fibre lasers and
+        amplifiers, working at the intersection of physics, materials science and computation.
+        Optical fibres are remarkably efficient, compact and robust light sources, but pushing
+        them to higher powers introduces fundamental obstacles — waste heat, optical
+        nonlinearities, and beam-quality degradation — that limit their stability and
+        versatility. Our programme is built around three guiding principles: <strong>stability</strong>,
+        by minimising power, frequency and nonlinear instabilities; <strong>versatility</strong>,
+        by broadening laser performance across new spectral and temporal regimes; and
+        <strong>intelligence</strong>, by enabling systems that dynamically adapt and optimise
+        themselves in changing environments.
+      </p>
+      <p class="research-overview">
+        Rather than following the conventional reliance on single-mode fibres, we embrace
+        multimode fibres and wavefront shaping as a richer platform for controlling light,
+        combine anti-Stokes-fluorescence cooling to eliminate waste heat, and integrate
+        programmable nonlinear materials such as liquid crystals to reach entirely new
+        wavelengths and quantum states of light. The aim is to turn fibre lasers into
+        ultra-stable, adaptable, high-performance light sources that open new frontiers in
+        quantum computing, precision metrology and sensing, advanced manufacturing, and
+        future communications.
+      </p>
+
+      <div class="research-list">
+
+        <div class="research-entry">
+          <div class="num">01</div>
+          <div>
+            <h3>Ultra-Stable High-Power Fibre Amplifiers</h3>
+            <p>
+              Scaling fibre lasers to high power usually generates waste heat that degrades both
+              power and frequency stability. We develop heat-free, single-frequency fibre
+              amplifiers using anti-Stokes-fluorescence (radiation-balanced) cooling, removing
+              the quantum-defect heat at its source and the vibrations caused by external cooling.
+              By engineering novel fibre structures such as air-clad microstructured fibres and
+              purer, low-quenching glass compositions, we aim to push athermal amplifiers from
+              the watt level toward hundreds of watts and beyond.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Heat-Free (Radiation-Balanced) Fibre Lasers</h3>
-          <p>
-            By exploiting light-induced anti-Stokes fluorescence, Yb-doped silica fibres
-            can be optically cooled. We use this radiation-balanced cooling to build
-            heat-free fibre lasers and amplifiers, and to develop high-precision
-            fibre-optic sensors for measuring their temperature.
-          </p>
+        <div class="research-entry">
+          <div class="num">02</div>
+          <div>
+            <h3>Nonlinear Optics in Multimode Fibres</h3>
+            <p>
+              Optical nonlinearities like stimulated Brillouin scattering and transverse mode
+              instability have long capped how far fibre amplifiers can be power-scaled. We study
+              why multimode fibres are surprisingly resilient to these instabilities, spreading
+              light across many spatial modes to reduce intensity and weaken the feedback that
+              drives nonlinear effects. This work overturns the long-held belief that multimode
+              amplifiers can only produce poor beams, and underpins a route to high-power output
+              with excellent beam quality.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Wavefront Shaping &amp; Mode Control</h3>
-          <p>
-            The spatial modes inside a fibre can be programmed. We use wavefront shaping
-            and optimisation to control the output beam profile, focus light through
-            complex fibres, and steer optical nonlinearities to our advantage.
-          </p>
+        <div class="research-entry">
+          <div class="num">03</div>
+          <div>
+            <h3>Wavefront Shaping and "Smart" Amplifiers</h3>
+            <p>
+              By shaping the wavefront of a low-power seed laser, the complex amplification inside
+              a multimode fibre can be steered to produce a clean single-mode beam, custom beam
+              profiles, or tailored pulse shapes. We develop fast, physics-informed algorithms —
+              including machine learning and nonlinear optimisation — that adapt in real time to
+              correct for thermal and mechanical drift. A key aim is to replace bulky free-space
+              optics with all-fibre, liquid-crystal-clad electro-optic wavefront shapers built
+              directly into the fibre.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Programmable &amp; Chiral Photonic Devices</h3>
-          <p>
-            Chiral liquid-crystalline photonic crystals provide a soft, tunable platform
-            for manipulating polarisation, modulating ultrafast pulses, and building
-            reconfigurable photonic devices.
-          </p>
+        <div class="research-entry">
+          <div class="num">04</div>
+          <div>
+            <h3>Novel Nonlinear Light Sources</h3>
+            <p>
+              Combining stable fibre lasers with engineered nonlinear materials lets us reach
+              wavelengths and quantum states of light that fibres alone cannot produce. A
+              particular focus is on recently discovered ferroelectric nematic liquid crystals,
+              which offer strong second-order nonlinearity together with electro-optic tunability.
+              Target applications include stable watt-level ultraviolet lasers for neutral-atom
+              quantum computing and high-power squeezed-light sources for quantum sensing and
+              gravitational-wave detection.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>High-Precision Fibre-Optic Sensing</h3>
-          <p>
-            Slow-light fibre-Bragg-grating sensors enable temperature and strain
-            measurements with very high resolution — essential tools both for our
-            laser-cooling experiments and for wider sensing applications.
-          </p>
+        <div class="research-entry">
+          <div class="num">05</div>
+          <div>
+            <h3>Specialty Optical Fibres and Materials</h3>
+            <p>
+              Achieving heat-free, high-power operation depends on the fibre itself. We design and
+              characterise specialty fibres and glasses — including new Yb-doped silicate
+              compositions that have set records for the largest optical cooling and lowest
+              quenching. This research links careful measurement of cooling performance, using
+              high-resolution slow-light fibre-Bragg-grating sensors, to the design of fibres that
+              outperform the best commercial options.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Applications</h3>
-          <p>
-            The techniques we develop reach across many fields, from directed energy and
-            lidar to quantum information, AI, and space photonics.
-          </p>
+        <div class="research-entry">
+          <div class="num">06</div>
+          <div>
+            <h3>Transparent Reconfigurable Intelligent Surfaces</h3>
+            <p>
+              As wireless communications move to ever higher frequencies, signals are increasingly
+              scattered and attenuated by everyday objects. We bring concepts from optical
+              wavefront shaping to the radio-frequency domain, developing reconfigurable
+              intelligent surfaces that reshape how signals propagate. The aim is transparent,
+              liquid-crystal-clad antenna surfaces that overcome the limitations of opaque designs
+              and integrate seamlessly into real-world environments for 6G and beyond.
+            </p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>

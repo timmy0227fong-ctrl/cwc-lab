@@ -38,9 +38,13 @@
   <section class="hero">
     <div class="container">
       <h1>Shaping light in<br>complex fibres.</h1>
-      <p>We study the linear and nonlinear optics of multimode fibres — developing
-         high-power lasers and programmable photonic devices that go beyond what
-         single-mode fibres can do.</p>
+      <!-- 這段 hero 介紹有兩種版本，每次重新整理由下方 <script> 隨機顯示其一。
+           預設文字（給未啟用 JavaScript 的訪客）為版本 A。 -->
+      <p id="hero-blurb">We study the linear and nonlinear optics of multimode fibres,
+         using wavefront shaping to control how light propagates and amplifies inside them.
+         By steering the many spatial modes of a fibre, we tame nonlinear effects and sculpt
+         the output beam — turning complexity into a tool for building brighter, cleaner, and
+         more controllable light sources.</p>
       <a href="research.html" class="btn">Explore Our Research</a>
       <a href="join.html" class="btn btn-outline">Join Us</a>
     </div>
@@ -118,6 +122,19 @@
          <a href="contact.html">Contact us</a></p>
     </div>
   </footer>
+
+  <!-- Hero 介紹段落：兩種版本，每次載入隨機顯示其一。
+       要修改文字，改下面陣列裡的兩個字串即可（用半形雙引號包住，結尾加逗號）。 -->
+  <script>
+    (function () {
+      var blurbs = [
+        "We study the linear and nonlinear optics of multimode fibres, using wavefront shaping to control how light propagates and amplifies inside them. By steering the many spatial modes of a fibre, we tame nonlinear effects and sculpt the output beam — turning complexity into a tool for building brighter, cleaner, and more controllable light sources.",
+        "We build the next generation of fibre lasers — high-power, ultra-stable, and intelligent. Combining heat-free laser cooling, specialty fibres, and programmable materials, our work powers advances from quantum computing and precision sensing to advanced manufacturing and future communications."
+      ];
+      var el = document.getElementById('hero-blurb');
+      if (el) { el.textContent = blurbs[Math.floor(Math.random() * blurbs.length)]; }
+    })();
+  </script>
 
 </body>
 </html>
