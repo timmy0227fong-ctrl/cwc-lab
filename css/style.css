@@ -320,6 +320,9 @@ img { max-width: 100%; display: block; }
 
   /* 手機版導覽列：品牌 + 漢堡按鈕一行；選單以絕對定位浮在頁面內容「之上」，
      展開時不會把下方內容往下推（避免跳動）。 */
+  /* 頁首本身的 backdrop-filter 會擋住子選單的磨砂效果，手機版先關掉，
+     讓下方選單的 backdrop-filter 能直接模糊到頁面內容。 */
+  .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; }
   .nav { position: relative; }
   .nav-toggle { display: flex; }
   .nav-links {
@@ -333,8 +336,8 @@ img { max-width: 100%; display: block; }
     padding: 14px 24px 20px;
     /* 玻璃磨砂：約 85% 不透明（穿透率 ~15%）+ 背景模糊 */
     background: rgba(247, 246, 243, 0.85);
-    -webkit-backdrop-filter: saturate(180%) blur(14px);
-    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    backdrop-filter: saturate(180%) blur(18px);
     border-bottom: 1px solid var(--color-border);
     box-shadow: 0 14px 28px rgba(0,0,0,.14);
     z-index: 200;
