@@ -331,7 +331,10 @@ img { max-width: 100%; display: block; }
     flex-direction: column;
     gap: 12px;
     padding: 14px 24px 20px;
-    background: var(--color-bg);
+    /* 玻璃磨砂：約 85% 不透明（穿透率 ~15%）+ 背景模糊 */
+    background: rgba(247, 246, 243, 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    backdrop-filter: saturate(180%) blur(14px);
     border-bottom: 1px solid var(--color-border);
     box-shadow: 0 14px 28px rgba(0,0,0,.14);
     z-index: 200;
