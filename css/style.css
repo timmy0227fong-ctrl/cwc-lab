@@ -320,9 +320,14 @@ img { max-width: 100%; display: block; }
 
   /* 手機版導覽列：品牌 + 漢堡按鈕一行；選單以絕對定位浮在頁面內容「之上」，
      展開時不會把下方內容往下推（避免跳動）。 */
-  /* 頁首本身的 backdrop-filter 會擋住子選單的磨砂效果，手機版先關掉，
-     讓下方選單的 backdrop-filter 能直接模糊到頁面內容。 */
-  .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  /* iOS Safari 限制：磨砂用在「吸頂頁首裡的子元素」會失效。
+     手機版改成不吸頂（position: static），並關掉頁首自身的 backdrop-filter，
+     讓選單的 backdrop-filter 能直接模糊到頁面內容。電腦版仍維持吸頂。 */
+  .site-header {
+    position: static;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
   .nav { position: relative; }
   .nav-toggle { display: flex; }
   .nav-links {
