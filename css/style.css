@@ -318,18 +318,26 @@ img { max-width: 100%; display: block; }
   .hero { padding: 80px 0 70px; }
   .hero p { font-size: 18px; }
 
-  /* 手機版導覽列：品牌 + 漢堡按鈕一行，選單收進按鈕裡 */
-  .nav { flex-wrap: wrap; row-gap: 4px; }
+  /* 手機版導覽列：品牌 + 漢堡按鈕一行；選單以絕對定位浮在頁面內容「之上」，
+     展開時不會把下方內容往下推（避免跳動）。 */
+  .nav { position: relative; }
   .nav-toggle { display: flex; }
   .nav-links {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     flex-direction: column;
-    width: 100%;
     gap: 12px;
-    padding: 14px 0 18px;
+    padding: 14px 24px 20px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 14px 28px rgba(0,0,0,.14);
+    z-index: 200;
   }
   .nav.nav-open .nav-links { display: flex; }
-  .nav-links a { padding: 16px; font-size: 19px; }
+  .nav-links a { padding: 14px 8px; font-size: 19px; }
   /* 開啟時把三條線變成 X */
   .nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
