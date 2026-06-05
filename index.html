@@ -154,7 +154,8 @@
       caret.textContent = '▋';
       el.appendChild(caret);
 
-      var duration = 1000, start = null;
+      var msPerChar = 12;                          // 每字約 12ms（整段約 3–4 秒；想調快慢改這個數字即可）
+      var duration = full.length * msPerChar, start = null;
       function step(ts) {
         if (start === null) start = ts;
         var p = Math.min((ts - start) / duration, 1);
