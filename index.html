@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
-  <script src="js/nav.js?v=8" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <script src="js/nav.js?v=9" defer></script>
 </head>
 <body>
 
@@ -133,7 +133,41 @@
         "We build the next generation of fibre lasers — high-power, ultra-stable, and intelligent. Combining heat-free laser cooling, specialty fibres, and programmable materials, our work powers advances from quantum computing and precision sensing to advanced manufacturing and future communications."
       ];
       var el = document.getElementById('hero-blurb');
-      if (el) { el.textContent = blurbs[Math.floor(Math.random() * blurbs.length)]; }
+      if (!el) return;
+      var full = blurbs[Math.floor(Math.random() * blurbs.length)];
+
+      // 尊重系統「減少動態效果」設定：直接顯示完整文字，不做動畫
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = full;
+        return;
+      }
+
+      // 打字機效果：約 1 秒內逐字顯示（上方大標題不受影響）
+      el.textContent = full;
+      el.style.minHeight = el.offsetHeight + 'px'; // 先預留高度，逐字時下方按鈕才不會跳動
+      el.textContent = '';
+      var textNode = document.createTextNode('');
+      el.appendChild(textNode);
+      var caret = document.createElement('span');
+      caret.className = 'type-caret';
+      caret.setAttribute('aria-hidden', 'true');
+      caret.textContent = '▋';
+      el.appendChild(caret);
+
+      var duration = 1000, start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        textNode.nodeValue = full.slice(0, Math.ceil(p * full.length));
+        if (p < 1) {
+          requestAnimationFrame(step);
+        } else {
+          textNode.nodeValue = full;
+          if (caret.parentNode) caret.parentNode.removeChild(caret);
+          el.style.minHeight = '';
+        }
+      }
+      requestAnimationFrame(step);
     })();
   </script>
 
