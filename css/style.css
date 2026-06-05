@@ -326,17 +326,14 @@ img { max-width: 100%; display: block; }
   .hero { padding: 44px 0 64px; }
   .hero p { font-size: 18px; }
 
-  /* 手機版導覽列：頁首改為「固定吸頂」(position: fixed)，選單在「頁首內」展開，
-     由頁首這一個元素本身的 backdrop-filter 一起磨砂 —— iOS Safari 對吸頂元素
-     本身的磨砂是支援的（對其子元素則否），這樣選單才會有磨砂效果。
-     固定定位也讓選單展開時不會把頁面內容往下推（避免跳動），標題維持吸頂。 */
+  /* 手機版導覽列：頁首固定吸頂 (position: fixed)，選單在「頁首內」展開、浮在內容之上，
+     展開時不會把頁面內容往下推（避免跳動），標題維持吸頂。背景為不透明純色（無磨砂）。 */
   .site-header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    /* 玻璃磨砂：約 92% 不透明（穿透率 ~8%）+ 背景模糊 */
-    background: rgba(247, 246, 243, 0.92);
-    -webkit-backdrop-filter: saturate(180%) blur(40px);
-    backdrop-filter: saturate(180%) blur(40px);
+    background: var(--color-bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
   }
   body { padding-top: 68px; } /* 預留固定頁首高度；JS 會再校正成精確值 */
