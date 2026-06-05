@@ -241,6 +241,18 @@ img { max-width: 100%; display: block; }
 .pub-item .pub-venue { font-style: italic; color: var(--color-ink-soft); font-size: 15px; }
 .pub-item .pub-note { display: block; font-size: 13px; color: var(--color-accent); margin-top: 3px; }
 .pub-count { color: var(--color-ink-soft); font-size: 15px; margin-bottom: 8px; }
+.pub-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  transition: background .15s, color .15s;
+}
+.pub-link:hover { background: var(--color-accent); color: #fff; text-decoration: none; }
 
 /* --- 9. 消息列表 --- */
 .news-item { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--color-border); }
