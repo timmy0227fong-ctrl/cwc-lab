@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=9">
-  <script src="js/nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=10">
+  <script src="js/nav.js?v=10" defer></script>
 </head>
 <body>
 
@@ -142,30 +142,37 @@
         return;
       }
 
-      // 打字機效果：約 1 秒內逐字顯示（上方大標題不受影響）
-      el.textContent = full;
-      el.style.minHeight = el.offsetHeight + 'px'; // 先預留高度，逐字時下方按鈕才不會跳動
+      // 打字機效果：整段文字一開始就「佔好版面」（未打出的部分透明），
+      // 因此逐字顯示時段落高度不變，下方按鈕完全不會移動。
       el.textContent = '';
-      var textNode = document.createTextNode('');
-      el.appendChild(textNode);
-      var caret = document.createElement('span');
+      var typed = document.createTextNode('');        // 已顯示（正常顏色）
+      var caret = document.createElement('span');      // 游標（寬度 0，不影響排版）
       caret.className = 'type-caret';
       caret.setAttribute('aria-hidden', 'true');
       caret.textContent = '▋';
+      var rest = document.createElement('span');       // 未顯示（透明，仍佔位置）
+      rest.className = 'type-rest';
+      var restText = document.createTextNode(full);
+      rest.appendChild(restText);
+      el.appendChild(typed);
       el.appendChild(caret);
+      el.appendChild(rest);
 
       var msPerChar = 12;                          // 每字約 12ms（整段約 3–4 秒；想調快慢改這個數字即可）
       var duration = full.length * msPerChar, start = null;
       function step(ts) {
         if (start === null) start = ts;
         var p = Math.min((ts - start) / duration, 1);
-        textNode.nodeValue = full.slice(0, Math.ceil(p * full.length));
+        var n = Math.ceil(p * full.length);
+        typed.nodeValue = full.slice(0, n);
+        restText.nodeValue = full.slice(n);
         if (p < 1) {
           requestAnimationFrame(step);
         } else {
-          textNode.nodeValue = full;
+          typed.nodeValue = full;
+          restText.nodeValue = '';
           if (caret.parentNode) caret.parentNode.removeChild(caret);
-          el.style.minHeight = '';
+          if (rest.parentNode) rest.parentNode.removeChild(rest);
         }
       }
       requestAnimationFrame(step);
